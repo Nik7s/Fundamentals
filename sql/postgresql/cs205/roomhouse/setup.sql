@@ -1,0 +1,146 @@
+CREATE DATABASE roomhouse;
+\c roomhouse
+CREATE TABLE CUSTOMER
+(
+    CustomerId              char(3) primary key,
+    Name                    char(30),
+    PermanentAddress        char(100) 
+);
+BEGIN;
+INSERT INTO CUSTOMER VALUES ('C1', 'Jennifer Mackey', '201 Maple Lane, Huntsville, AL, 35816');
+INSERT INTO CUSTOMER VALUES ('C2', 'Anthony Lowe', '483 Pin Oak Drive, Hammond, IN, 46323');
+INSERT INTO CUSTOMER VALUES ('C3', 'Myrtis Smith', '4554 Commerce Boulevard, Lincoln, NE, 68501');
+INSERT INTO CUSTOMER VALUES ('C4', 'Anthony Perry', '1933 Reynolds Alley, Los Angeles, CA, 90017');
+INSERT INTO CUSTOMER VALUES ('C5', 'Zofia Wright', '1251 Ingram Road, Asheboro, NC, 277203');
+INSERT INTO CUSTOMER VALUES ('C6', 'Alice Anderson', '712 Walnut Hill Drive, Cincinnati, OH, 45236');
+INSERT INTO CUSTOMER VALUES ('C7', 'Lisa Pringle', '2252 Cemetery Street, Santa Clara, CA, 95050');
+INSERT INTO CUSTOMER VALUES ('C8', 'Richard Romero', '2576 Center Street, Culp Creek, OR, 97427');
+INSERT INTO CUSTOMER VALUES ('C9', 'William Rentschler', '4639 Lincoln Drive, Hanover, PA, 17332');
+INSERT INTO CUSTOMER VALUES ('C10', 'Jose Moseley', '1360 Sardis Station, Minneapolis, MN 55415');
+INSERT INTO CUSTOMER VALUES ('C11', 'Mary McLeod', '4457 Kincheloe Road, Portland, OR, 97232');
+INSERT INTO CUSTOMER VALUES ('C12', 'William McWhorter', '2829 Meadow Drive, Missoula, MT, 59801');
+INSERT INTO CUSTOMER VALUES ('C13', 'Nancy Todd', '2883 Sampson Street, Denver, CO, 80202');
+INSERT INTO CUSTOMER VALUES ('C14', 'Michael Kass', '2574 Scenicview Drive, Midland, TX, 79701');
+INSERT INTO CUSTOMER VALUES ('C15', 'Roberta Dortch', '781 Seneca Drive, Portland, OR, 97204');
+INSERT INTO CUSTOMER VALUES ('C16', 'Carl Draper', '2423 Hilltop Street, Springfield, MA, 01103');
+INSERT INTO CUSTOMER VALUES ('C17', 'Donna Thorne', '4466 Scheuvront Drive, Denver, CO, 80211');
+INSERT INTO CUSTOMER VALUES ('C18', 'Stephen Thompson', '2392 Bridge Street, Tulsa, OK, 74120');
+INSERT INTO CUSTOMER VALUES ('C19', 'Queenie Procter', '4845 Mercer Street, Falun, WI, 54840');
+INSERT INTO CUSTOMER VALUES ('C20', 'Benjamin Ramsey', '3459 Kooter Lane, Charlotte, NC, 28202');
+COMMIT;
+CREATE TABLE ROOM
+(
+    RoomId                  int primary key,
+    RoomType                char(1) DEFAULT 'S' CHECK((RoomType='S')OR(RoomType='D')),
+    Bathroom                char(1) DEFAULT 'N' CHECK((Bathroom='Y')OR(Bathroom='N')),
+    DailyPrice              int
+);
+BEGIN;
+INSERT INTO ROOM VALUES (1, 'S', 'N', 10);
+INSERT INTO ROOM VALUES (2, 'S', 'N', 10);
+INSERT INTO ROOM VALUES (3, 'S', 'N', 10);
+INSERT INTO ROOM VALUES (4, 'S', 'Y', 12);
+INSERT INTO ROOM VALUES (5, 'D', 'Y', 15);
+INSERT INTO ROOM VALUES (6, 'D', 'Y', 15);
+INSERT INTO ROOM VALUES (7, 'D', 'Y', 15);
+COMMIT;
+CREATE TABLE RESERVATION
+(
+    ReservationId           char(3) primary key,
+    CustomerId              char(3) references CUSTOMER(CustomerId),
+    RoomId                  int references ROOM(RoomId),
+    StartDate               date,
+    EndDate                 date,
+    DateChanged             char(1) DEFAULT 'N' CHECK((DateChanged='Y')OR(DateChanged='N')),
+    Cancelled               char(1) DEFAULT 'N' CHECK((Cancelled='Y')OR(Cancelled='N'))
+);
+BEGIN;
+INSERT INTO RESERVATION VALUES ('R1', 'C1', 7, '2/1/2021', '2/28/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R2', 'C2', 7, '2/1/2021', '2/28/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R3', 'C3', 6, '2/1/2021', '2/28/2021', 'Y', 'N'); 
+INSERT INTO RESERVATION VALUES ('R4', 'C4', 6, '2/1/2021', '2/28/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R5', 'C3', 6, '2/1/2021', '2/14/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R6', 'C5', 5, '2/1/2021', '2/28/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R7', 'C6', 5, '2/1/2021', '2/28/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R8', 'C7', 1, '2/10/2021', '2/13/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R9', 'C8', 2, '2/14/2021', '2/18/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R10', 'C9', 3, '2/14/2021', '2/18/2021', 'N', 'Y');
+INSERT INTO RESERVATION VALUES ('R11', 'C10', 4, '2/15/2021', '2/19/2021', 'N', 'Y');
+INSERT INTO RESERVATION VALUES ('R12', 'C11', 3, '2/18/2021', '2/20/2021', 'Y', 'N');
+INSERT INTO RESERVATION VALUES ('R13', 'C11', 3, '2/18/2021', '2/21/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R14', 'C12', 4, '3/18/2021', '3/24/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R15', 'C13', 1, '2/20/2021', '2/25/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R16', 'C14', 2, '2/28/2021', '3/2/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R17', 'C15', 1, '3/1/2021', '3/4/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R18', 'C16', 3, '3/3/2021', '3/5/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R19', 'C17', 4, '3/6/2021', '3/9/2021', 'N', 'Y');
+INSERT INTO RESERVATION VALUES ('R20', 'C18', 6, '3/11/2021', '3/18/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R21', 'C19', 6, '3/11/2021', '3/18/2021', 'N', 'N'); 
+INSERT INTO RESERVATION VALUES ('R22', 'C20', 1, '3/13/2021', '3/15/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R23', 'C7', 4, '3/13/2021', '3/15/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R24', 'C15', 1, '3/18/2021', '3/21/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R25', 'C10', 4, '3/19/2021', '3/21/2021', 'N', 'Y');
+INSERT INTO RESERVATION VALUES ('R26', 'C9', 4, '3/19/2021', '3/21/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R27', 'C17', 2, '3/19/2021', '3/23/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R28', 'C7', 1, '3/24/2021', '3/26/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R29', 'C12', 3, '3/25/2021', '3/28/2021', 'Y', 'N');
+INSERT INTO RESERVATION VALUES ('R30', 'C12', 3, '3/27/2021', '4/29/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R31', 'C7', 4, '3/30/2021', '4/2/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R32', 'C19', 7, '4/1/2021', '4/5/2021', 'N', 'N'); 
+INSERT INTO RESERVATION VALUES ('R33', 'C12', 7, '4/1/2021', '4/5/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R34', 'C15', 1, '4/3/2021', '4/7/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R35', 'C11', 3, '4/7/2021', '4/11/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R36', 'C7', 4, '4/9/2021', '4/16/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R37', 'C15', 2, '4/11/2021', '4/13/2021', 'Y', 'N');
+INSERT INTO RESERVATION VALUES ('R38', 'C15', 2, '4/12/2021', '4/14/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R39', 'C20', 3, '4/17/2021', '4/19/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R40', 'C17', 1, '4/19/2021', '4/21/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R41', 'C16', 4, '4/23/2021', '4/27/2021', 'N', 'Y');
+INSERT INTO RESERVATION VALUES ('R42', 'C10', 1, '4/24/2021', '4/28/2021', 'N', 'N');
+INSERT INTO RESERVATION VALUES ('R43', 'C19', 4, '4/30/2021', '5/2/2021', 'N', 'N');
+COMMIT;
+CREATE TABLE STAY
+(
+    StayId                  char(3) primary key,
+    CustomerId              char(3) references CUSTOMER(CustomerId),
+    RoomId                  int references ROOM(RoomId),
+    StartDate               date,
+    EndDate                 date,
+    AmountDue               int
+);
+BEGIN;
+INSERT INTO STAY VALUES ('S1', 'C1', 7, '2/1/2021', '2/28/2021', 420);
+INSERT INTO STAY VALUES ('S2', 'C2', 7, '2/1/2021', '2/28/2021', 420);
+INSERT INTO STAY VALUES ('S3', 'C4', 6, '2/1/2021', '2/28/2021', 420);
+INSERT INTO STAY VALUES ('S4', 'C3', 6, '2/1/2021', '2/14/2021', 420);
+INSERT INTO STAY VALUES ('S5', 'C5', 5, '2/1/2021', '2/28/2021', 420);
+INSERT INTO STAY VALUES ('S6', 'C6', 5, '2/1/2021', '2/28/2021', 420);
+INSERT INTO STAY VALUES ('S7', 'C7', 1, '2/10/2021', '2/13/2021', 30);
+INSERT INTO STAY VALUES ('S8', 'C8', 2, '2/14/2021', '2/18/2021', 40);
+INSERT INTO STAY VALUES ('S9', 'C11', 3, '2/18/2021', '2/21/2021', 30);
+INSERT INTO STAY VALUES ('S10', 'C12', 4, '3/18/2021', '3/24/2021', 72);
+INSERT INTO STAY VALUES ('S11', 'C13', 1, '2/20/2021', '2/25/2021', 50);
+INSERT INTO STAY VALUES ('S12', 'C14', 2, '2/28/2021', '3/2/2021', 30);
+INSERT INTO STAY VALUES ('S13', 'C15', 1, '3/1/2021', '3/4/2021', 30);
+INSERT INTO STAY VALUES ('S14', 'C16', 3, '3/3/2021', '3/5/2021', 20);
+INSERT INTO STAY VALUES ('S15', 'C18', 6, '3/11/2021', '3/18/2021', 105);
+INSERT INTO STAY VALUES ('S16', 'C19', 6, '3/11/2021', '3/18/2021', 105);
+INSERT INTO STAY VALUES ('S17', 'C20', 1, '3/13/2021', '3/15/2021', 20);
+INSERT INTO STAY VALUES ('S18', 'C7', 4, '3/13/2021', '3/15/2021', 24);
+INSERT INTO STAY VALUES ('S19', 'C15', 1, '3/18/2021', '3/21/2021', 30);
+INSERT INTO STAY VALUES ('S20', 'C9', 4, '3/19/2021', '3/21/2021', 24);
+INSERT INTO STAY VALUES ('S21', 'C17', 2, '3/19/2021', '3/23/2021', 40);
+INSERT INTO STAY VALUES ('S22', 'C7', 1, '3/24/2021', '3/26/2021', 20);
+INSERT INTO STAY VALUES ('S23', 'C12', 3, '3/27/2021', '3/29/2021', 20);
+INSERT INTO STAY VALUES ('S24', 'C7', 4, '3/30/2021', '4/2/2021', 36);
+INSERT INTO STAY VALUES ('S25', 'C19', 7, '4/1/2021', '4/5/2021', 60);
+INSERT INTO STAY VALUES ('S26', 'C12', 7, '4/1/2021', '4/5/2021', 60);
+INSERT INTO STAY VALUES ('S27', 'C15', 1, '4/3/2021', '4/7/2021', 40);
+INSERT INTO STAY VALUES ('S28', 'C11', 3, '4/7/2021', '4/11/2021', 40);
+INSERT INTO STAY VALUES ('S29', 'C7', 4, '4/9/2021', '4/16/2021', 204);
+INSERT INTO STAY VALUES ('S30', 'C15', 2, '4/12/2021', '4/14/2021', 20);
+INSERT INTO STAY VALUES ('S31', 'C20', 3, '4/17/2021', '4/19/2021', 20);
+INSERT INTO STAY VALUES ('S32', 'C17', 1, '4/19/2021', '4/21/2021', 20);
+INSERT INTO STAY VALUES ('S33', 'C10', 1, '4/24/2021', '4/28/2021', 40);
+INSERT INTO STAY VALUES ('S34', 'C19', 4, '4/30/2021', '5/2/2021', 36);
+COMMIT;

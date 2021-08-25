@@ -1,0 +1,42 @@
+ customerid |               name               | international 
+------------+----------------------------------+---------------
+          1 | * Inventory *                    | N
+        101 | Bank of Freedonia                | Y
+        102 | Horse Feathers                   | N
+        103 | A Day at the Races               | N
+        104 | ABC Soda                         | N
+        105 | ACME Electric LLC                | N
+        106 | Adventurestation.com             | Y
+        107 | Aisling Acres Farms              | N
+        108 | All States Ag Parts              | N
+        109 | Allyndale Limestone Corporation  | N
+        110 | American International Companies | N
+        111 | Artic Kats Party Supplies        | Y
+        112 | Asco P & H Supply Co Inc         | N
+        113 | Baker Creek                      | N
+        114 | Big Penguin Ice                  | Y
+        118 | Borsting Laboratories, Inc.      | N
+        119 | Breezy Knolls Farm               | Y
+        120 | C&G"s ONE HOUR Party Supplies    | N
+        121 | C. L. Adams Co. Inc.             | N
+        122 | Fast Freddy"s                    | N
+        123 | Ice Age Products                 | N
+        124 | Mr Freeze                        | N
+        125 | Next Step Technologies           | Y
+        126 | Norton Brothers Fruit Farm, LLC  | N
+        127 | Orthopedic Supply Company        | N
+        128 | Packaging Corp. of America       | N
+        129 | Polartech Supplies               | N
+        130 | Pop, Pretzels and More           | N
+        131 | Sealed Ice Corporation           | Y
+        132 | Shell                            | N
+        133 | Slushie Supply Co                | Y
+        135 | Stop & Shop                      | N
+        138 | Tech Air                         | N
+        139 | Texaco                           | N
+        140 | The Icehouse                     | N
+        141 | Valero                           | N
+        142 | Valley Vet Supply                | N
+        143 | Value Health Care Services       | N
+(38 rows)
+

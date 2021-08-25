@@ -1,0 +1,57 @@
+ roomid | roomtype | count 
+--------+----------+-------
+      1 | S        |     9
+      4 | S        |     6
+      3 | S        |     5
+      6 | D        |     4
+      7 | D        |     4
+      2 | S        |     4
+      5 | D        |     2
+(7 rows)
+
+              name              |                                           permanentaddress                                           | startdate  | amountdue 
+--------------------------------+------------------------------------------------------------------------------------------------------+------------+-----------
+ Jennifer Mackey                | 201 Maple Lane, Huntsville, AL, 35816                                                                | 2021-02-01 |       420
+ Anthony Lowe                   | 483 Pin Oak Drive, Hammond, IN, 46323                                                                | 2021-02-01 |       420
+ Myrtis Smith                   | 4554 Commerce Boulevard, Lincoln, NE, 68501                                                          | 2021-02-01 |       420
+ Anthony Perry                  | 1933 Reynolds Alley, Los Angeles, CA, 90017                                                          | 2021-02-01 |       420
+ Zofia Wright                   | 1251 Ingram Road, Asheboro, NC, 277203                                                               | 2021-02-01 |       420
+ Alice Anderson                 | 712 Walnut Hill Drive, Cincinnati, OH, 45236                                                         | 2021-02-01 |       420
+ Lisa Pringle                   | 2252 Cemetery Street, Santa Clara, CA, 95050                                                         | 2021-02-10 |        30
+ Richard Romero                 | 2576 Center Street, Culp Creek, OR, 97427                                                            | 2021-02-14 |        40
+ Mary McLeod                    | 4457 Kincheloe Road, Portland, OR, 97232                                                             | 2021-02-18 |        30
+ Nancy Todd                     | 2883 Sampson Street, Denver, CO, 80202                                                               | 2021-02-20 |        50
+ Michael Kass                   | 2574 Scenicview Drive, Midland, TX, 79701                                                            | 2021-02-28 |        30
+(11 rows)
+
+              name              |                                           permanentaddress                                           | startdate  | amountdue 
+--------------------------------+------------------------------------------------------------------------------------------------------+------------+-----------
+ Roberta Dortch                 | 781 Seneca Drive, Portland, OR, 97204                                                                | 2021-03-01 |        30
+ Carl Draper                    | 2423 Hilltop Street, Springfield, MA, 01103                                                          | 2021-03-03 |        20
+ Queenie Procter                | 4845 Mercer Street, Falun, WI, 54840                                                                 | 2021-03-11 |       105
+ Stephen Thompson               | 2392 Bridge Street, Tulsa, OK, 74120                                                                 | 2021-03-11 |       105
+ Lisa Pringle                   | 2252 Cemetery Street, Santa Clara, CA, 95050                                                         | 2021-03-13 |        24
+ Benjamin Ramsey                | 3459 Kooter Lane, Charlotte, NC, 28202                                                               | 2021-03-13 |        20
+ Roberta Dortch                 | 781 Seneca Drive, Portland, OR, 97204                                                                | 2021-03-18 |        30
+ William McWhorter              | 2829 Meadow Drive, Missoula, MT, 59801                                                               | 2021-03-18 |        72
+ Donna Thorne                   | 4466 Scheuvront Drive, Denver, CO, 80211                                                             | 2021-03-19 |        40
+ William Rentschler             | 4639 Lincoln Drive, Hanover, PA, 17332                                                               | 2021-03-19 |        24
+ Lisa Pringle                   | 2252 Cemetery Street, Santa Clara, CA, 95050                                                         | 2021-03-24 |        20
+ William McWhorter              | 2829 Meadow Drive, Missoula, MT, 59801                                                               | 2021-03-27 |        20
+ Lisa Pringle                   | 2252 Cemetery Street, Santa Clara, CA, 95050                                                         | 2021-03-30 |        36
+(13 rows)
+
+              name              |                                           permanentaddress                                           | startdate  | amountdue 
+--------------------------------+------------------------------------------------------------------------------------------------------+------------+-----------
+ Queenie Procter                | 4845 Mercer Street, Falun, WI, 54840                                                                 | 2021-04-01 |        60
+ William McWhorter              | 2829 Meadow Drive, Missoula, MT, 59801                                                               | 2021-04-01 |        60
+ Roberta Dortch                 | 781 Seneca Drive, Portland, OR, 97204                                                                | 2021-04-03 |        40
+ Mary McLeod                    | 4457 Kincheloe Road, Portland, OR, 97232                                                             | 2021-04-07 |        40
+ Lisa Pringle                   | 2252 Cemetery Street, Santa Clara, CA, 95050                                                         | 2021-04-09 |       204
+ Roberta Dortch                 | 781 Seneca Drive, Portland, OR, 97204                                                                | 2021-04-12 |        20
+ Benjamin Ramsey                | 3459 Kooter Lane, Charlotte, NC, 28202                                                               | 2021-04-17 |        20
+ Donna Thorne                   | 4466 Scheuvront Drive, Denver, CO, 80211                                                             | 2021-04-19 |        20
+ Jose Moseley                   | 1360 Sardis Station, Minneapolis, MN 55415                                                           | 2021-04-24 |        40
+ Queenie Procter                | 4845 Mercer Street, Falun, WI, 54840                                                                 | 2021-04-30 |        36
+(10 rows)
+

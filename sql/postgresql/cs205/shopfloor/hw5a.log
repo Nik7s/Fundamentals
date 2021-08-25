@@ -1,0 +1,11 @@
+select name, vet, vetname
+from pet, vet_species, vet
+where pet.name='Ginger' and vet_species.species='Dog' and vet.vetid=vet_species.vet;
+
+               name               | vet |             vetname              
+----------------------------------+-----+----------------------------------
+ Ginger                           |   2 | Dr Carlson                      
+ Ginger                           |   3 | Dr Timm                         
+ Ginger                           |   4 | Dr Miller                       
+(3 rows)
+
