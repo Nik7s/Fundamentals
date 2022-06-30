@@ -5,7 +5,7 @@ ___________________________________________________________
 
 ## Git clone
 - Always create the repository on GitHub first.
-- Use "git clone (github url)" when you want to clone a github repository into a folder on alexanderfluna.
+- Use "git clone (github url)" when you want to clone a github repository into a local folder.
 
 ## Git status
 - Make sure to be in the directory and to save your files first.
