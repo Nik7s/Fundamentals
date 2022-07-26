@@ -1,3 +1,6 @@
+/* Compile-time polymorphism: This type of polmorphism
+ is achieved by function overloading or operator overloading */
+
 /* Operator overloading: You can make use of the addition operator
 (+) for string class to concatenate two strings. We know that the
 task of this operator is to add two operands. So a single operator
