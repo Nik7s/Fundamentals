@@ -1,3 +1,6 @@
+# Merge Sort is a Divide and Conquer algorithm. It divides the input array in two halves,
+# calls itself to sort the two halves, and then merges the two sorted halves
+
 def merge(arr, low, middle, high):
     
     # Stores the size of the left and right subarrays
