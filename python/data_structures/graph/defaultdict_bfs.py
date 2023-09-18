@@ -1,3 +1,5 @@
+# BFS uses a queue
+
 from collections import defaultdict
 
 class Graph:
