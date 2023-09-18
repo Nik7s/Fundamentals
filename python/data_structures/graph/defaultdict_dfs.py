@@ -1,3 +1,5 @@
+# DFS uses a stack
+
 from collections import defaultdict
 
 class Graph:
