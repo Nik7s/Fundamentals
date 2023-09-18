@@ -10,7 +10,7 @@ class Solution:
                 print("Values:")
                 print(nums[hashmap[num]], nums[index])
 
-                return
+                return(hashmap[num], index)
             else:
                 hashmap[target - num] = index
             
