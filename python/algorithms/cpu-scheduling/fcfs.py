@@ -1,5 +1,5 @@
 # Alexander Luna | Assignment 3 | 10/3/2023
-# First-Come-First-Serve CPU-Scheduling Algorithm
+# First Come First Serve CPU Scheduling Algorithm
 
 def fcfs(processes, burst_times):
     n = len(processes)
@@ -25,8 +25,8 @@ def fcfs(processes, burst_times):
     for i in range(n):
         print(f"P{i}\t\t{burst_times[i]}\t\t{waiting_time[i]}\t\t{turnaround_time[i]}")
     
-    print(f"Average Waiting Time: {avg_waiting_time}")
-    print(f"Average Turnaround Time: {avg_turnaround_time}")
+    print(f"Average Waiting Time: {avg_waiting_time:.2f}")
+    print(f"Average Turnaround Time: {avg_turnaround_time:.2f}")
 
 if __name__ == "__main__":
     processes = ["P1", "P2", "P3"]

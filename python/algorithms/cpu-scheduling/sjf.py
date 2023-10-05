@@ -1,5 +1,5 @@
 # Alexander Luna | Assignment 3 | 10/3/2023
-# Shorted-Job-First CPU-Scheduling Algorithm
+# Shorted Job First CPU Scheduling Algorithm
 
 def sjf(processes, burst_times):
     n = len(processes)
@@ -32,8 +32,8 @@ def sjf(processes, burst_times):
         process, burst_time = process_burst_time[i]
         print(f"{process}\t\t{burst_time}\t\t{waiting_time[i]}\t\t{turnaround_time[i]}")
     
-    print(f"Average Waiting Time: {avg_waiting_time}")
-    print(f"Average Turnaround Time: {avg_turnaround_time}")
+    print(f"Average Waiting Time: {avg_waiting_time:.2f}")
+    print(f"Average Turnaround Time: {avg_turnaround_time:.2f}")
 
 if __name__ == "__main__":
     processes = ["P1", "P2", "P3", "P4"]
