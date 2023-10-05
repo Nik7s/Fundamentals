@@ -22,22 +22,22 @@ def priority_scheduling(processes):
     avg_waiting_time = sum(waiting_time) / n
     avg_turnaround_time = sum(turnaround_time) / n
     
-    return avg_waiting_time, avg_turnaround_time
-
-if __name__ == "__main__":
-    # Example processes: (pid, burst_time, priority)
-    processes = [
-        (1, 6, 2),
-        (2, 8, 1),
-        (3, 4, 4),
-        (4, 5, 3)
-    ]
-    
-    avg_waiting_time, avg_turnaround_time = priority_scheduling(processes)
-    
+    # Print the results
     print("Process\tBurst Time\tPriority")
     for process in processes:
         print(f"{process[0]}\t{process[1]}\t\t{process[2]}")
     
     print(f"Average Waiting Time: {avg_waiting_time:.2f}")
     print(f"Average Turnaround Time: {avg_turnaround_time:.2f}")
+
+if __name__ == "__main__":
+    # Example processes: (pid, burst_time, priority)
+    processes = [
+        (1, 3, 1),
+        (2, 4, 3),
+        (3, 2, 2),
+        (4, 1, 1),
+        (5, 3, 4)
+    ]
+    
+    priority_scheduling(processes)
