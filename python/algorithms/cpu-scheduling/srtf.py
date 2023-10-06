@@ -110,4 +110,5 @@ if __name__ =="__main__":
 
     # Process id, Burst Time, Arrival Time
     processes = [[1, 7, 0], [2, 3, 1], [3, 4, 3]]
+    #processes = [[1, 8, 0], [2, 6, 1], [3, 4, 2], [4, 2, 2]]
     srtf(processes)
