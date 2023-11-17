@@ -4,7 +4,7 @@ ___________________________________________________________
 # Github
 
 ## Git clone
-- Always create the repository on GitHub first.
+- Create the repository on GitHub first.
 - Use "git clone (github url)" when you want to clone a github repository into a local folder.
 
 ## Git status
@@ -49,11 +49,6 @@ Third step:
 ___________________________________________________________
 # Visual Studio Code
 - The lightweight version of Visual Studio 2019 Community.
-
-## Workspace
-- You have one workspace in alexanderfluna that should include all other folders so you can see multiple at once.
-- 'M' next to files means "modified"
-- 'U' next to files means "untracked" (new / not yet pushed to GitHub)
 
 ## Extensions
 - Install the C/C++ & Python extensions.
