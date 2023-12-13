@@ -1,0 +1,38 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef struct
+{
+    unsigned long bufferLength;
+    [unique, size_is(bufferLength)] byte* buffer;
+} BUFFER;
+
+// File RPCShutdown.idl
+// Define two APIs
+// Output: print a string on the console
+// Shutdown: shutdown the server
+[
+    // A unique identifier that distinguishes this
+    // interface from other interfaces.
+    uuid(79da7da9-d31c-4850-a8f5-b000564b75ff),
+
+    // This is version 1.0 of this interface.
+    version(1.0),
+
+    // This interface will use an implicit binding
+    // handle named hExampleRPCBinding.
+    implicit_handle(handle_t hRPCWithShutdownBinding)
+]
+interface ExampleRPC // The interface is named Example1
+{
+    // Adds two numbers
+    int ComputeGCD([in] int a, [in] int b);
+
+    // Factors number
+    void FactorNumber([out] BUFFER* pBuffer, int n);
+
+    // Shutdown the server
+    void Shutdown(void);
+}
+
+
