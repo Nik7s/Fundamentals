@@ -1,97 +1,132 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
-public class Node
+class MyLinkedList<T> : IEnumerable<T>
 {
-    public int Data;
-    public Node Next;
-
-    public Node(int data)
+    private class Node
     {
-        Data = data;
-        Next = null;
-    }
-}
+        public T Value { get; set; }
+        public Node Next { get; set; }
 
-public class LinkedList
-{
+        public Node(T value)
+        {
+            Value = value;
+            Next = null;
+        }
+    }
+
     private Node head;
+    private Node tail;
 
-    public LinkedList()
-    {
-        head = null;
-    }
+    public int Count { get; private set; }
 
-    // Append a new int to the start of the linked list
-    public void AppendToStart(int data)
+    public void AddFirst(T value)
     {
-        Node newNode = new Node(data);
-        newNode.Next = head;
-        head = newNode;
-    }
-
-    // Append a new int to the end of the linked list
-    public void AppendToEnd(int data)
-    {
-        Node newNode = new Node(data);
+        Node newNode = new Node(value);
 
         if (head == null)
         {
+            head = tail = newNode;
+        }
+        else
+        {
+            newNode.Next = head;
             head = newNode;
-            return;
         }
 
-        Node lastNode = head;
-        while (lastNode.Next != null)
-        {
-            lastNode = lastNode.Next;
-        }
-
-        lastNode.Next = newNode;
+        Count++;
     }
 
-    // Remove the value at the start of the linked list
-    public void RemoveFromStart()
+    public void AddLast(T value)
     {
-        if (head != null)
-        {
-            head = head.Next;
-        }
-    }
+        Node newNode = new Node(value);
 
-    // Remove the value at the end of the linked list
-    public void RemoveFromEnd()
-    {
         if (head == null)
         {
-            return;
+            head = tail = newNode;
         }
-
-        if (head.Next == null)
+        else
         {
-            head = null;
-            return;
+            tail.Next = newNode;
+            tail = newNode;
         }
 
-        Node currentNode = head;
-        while (currentNode.Next.Next != null)
-        {
-            currentNode = currentNode.Next;
-        }
-
-        currentNode.Next = null;
+        Count++;
     }
 
-    // Display the linked list
-    public void DisplayList()
+    public void RemoveFirst()
     {
-        Node currentNode = head;
-        while (currentNode != null)
+        if (head == null)
+            return;
+
+        head = head.Next;
+
+        if (head == null)
+            tail = null;
+
+        Count--;
+    }
+
+    public void RemoveLast()
+    {
+        if (head == null)
+            return;
+
+        if (head == tail)
         {
-            Console.Write(currentNode.Data + " ");
-            currentNode = currentNode.Next;
+            head = tail = null;
+        }
+        else
+        {
+            Node current = head;
+            while (current.Next != tail)
+            {
+                current = current.Next;
+            }
+
+            current.Next = null;
+            tail = current;
         }
 
-        Console.WriteLine();
+        Count--;
+    }
+
+    public bool Contains(T value)
+    {
+        Node current = head;
+
+        while (current != null)
+        {
+            if (EqualityComparer<T>.Default.Equals(current.Value, value))
+                return true;
+
+            current = current.Next;
+        }
+
+        return false;
+    }
+
+    public void Clear()
+    {
+        head = tail = null;
+        Count = 0;
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        Node current = head;
+
+        while (current != null)
+        {
+            yield return current.Value;
+            current = current.Next;
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
 
@@ -99,24 +134,35 @@ class Program
 {
     static void Main()
     {
-        LinkedList linkedList = new LinkedList();
+        MyLinkedList<int> linkedList = new MyLinkedList<int>();
 
-        // Append to the end
-        linkedList.AppendToEnd(1);
-        linkedList.AppendToEnd(2);
-        linkedList.AppendToEnd(3);
-        linkedList.DisplayList(); // Output: 1 2 3
+        linkedList.AddLast(1);
+        linkedList.AddLast(2);
+        linkedList.AddLast(3);
 
-        // Append to the start
-        linkedList.AppendToStart(0);
-        linkedList.DisplayList(); // Output: 0 1 2 3
+        Console.WriteLine("LinkedList Contents:");
+        foreach (var item in linkedList)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
 
-        // Remove from the start
-        linkedList.RemoveFromStart();
-        linkedList.DisplayList(); // Output: 1 2 3
+        Console.WriteLine($"Contains 2: {linkedList.Contains(2)}");
 
-        // Remove from the end
-        linkedList.RemoveFromEnd();
-        linkedList.DisplayList(); // Output: 1 2
+        linkedList.RemoveFirst();
+        Console.WriteLine("\nAfter Removing First Element:");
+        foreach (var item in linkedList)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
+
+        linkedList.RemoveLast();
+        Console.WriteLine("\nAfter Removing Last Element:");
+        foreach (var item in linkedList)
+        {
+            Console.Write(item + " ");
+        }
+        Console.WriteLine();
     }
 }

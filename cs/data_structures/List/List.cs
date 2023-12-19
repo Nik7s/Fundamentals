@@ -1,34 +1,41 @@
 using System;
 using System.Collections.Generic;
 
-class Program {
-    static void Main() {
-        // Creating a list of integers
-        List<int> myVector = new List<int>();
+class Program
+{
+    static void Main()
+    {
+        List<int> myList = new List<int>();
 
-        // Adding elements to the list
-        myVector.Add(1);
-        myVector.Add(2);
-        myVector.Add(3);
+        // Add elements to the list
+        myList.Add(3);
+        myList.Add(1);
+        myList.Add(2);
 
-        // Accessing elements
-        Console.WriteLine("Element at index 1: " + myVector[1]);
+        // Display the list
+        Console.WriteLine("List Contents:");
+        DisplayList(myList);
 
-        // Iterating through the list
-        Console.Write("Elements in the list: ");
-        foreach (var element in myVector) {
-            Console.Write(element + " ");
+        // Check if the list contains a specific value
+        Console.WriteLine($"Contains 2: {myList.Contains(2)}");
+
+        // Remove elements from the list
+        myList.Remove(2);
+        Console.WriteLine("\nAfter Removing 2:");
+        DisplayList(myList);
+
+        // Insert an element at a specific index
+        myList.Insert(1, 4);
+        Console.WriteLine("\nAfter Inserting 4 at index 1:");
+        DisplayList(myList);
+    }
+
+    static void DisplayList<T>(List<T> list)
+    {
+        foreach (var item in list)
+        {
+            Console.Write(item + " ");
         }
         Console.WriteLine();
-
-        // Removing elements
-        myVector.Remove(2);
-
-        // Checking if an element exists
-        if (myVector.Contains(2)) {
-            Console.WriteLine("Element 2 found in the list.");
-        } else {
-            Console.WriteLine("Element 2 not found in the list.");
-        }
     }
 }

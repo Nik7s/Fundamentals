@@ -1,6 +1,6 @@
-package java.data_structures.LinkedList;
+package java.dataStructures.linkedList;
 
-public class linked_list {
+public class LinkedList {
     private Node head;
 
     // Node class to represent elements in the linked list
@@ -47,7 +47,7 @@ public class linked_list {
     }
 
     public static void main(String[] args) {
-        linked_list myList = new linked_list();
+        LinkedList myList = new LinkedList();
 
         myList.insertAtEnd(1);
         myList.insertAtEnd(2);
