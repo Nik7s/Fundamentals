@@ -44,8 +44,6 @@ Third step:
 ______________________________________________________________________________________________________________________________________________________
 
 # Linux
-
-## Basic Commands
 - "ls" will show all directories/files in current directory
 - "cd" will change to ~
 - "cd .." will change to the last directory
