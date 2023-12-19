@@ -1,6 +1,3 @@
-# Tutorial
-___________________________________________________________
-
 # Github
 
 ## Git clone
@@ -31,8 +28,8 @@ Third step:
 ## Git branching
 - Branching is good to learn when working with others. It creates temporary repositorites to do some code in that will eventually be merged it into the main repository.
 - Type "git branch" to list all branches
+- - To create a new branch, type "git checkout -b (name)"
 - Type "git checkout (branch)" to change between branches. For the (branch), you can just type the first letters and TAB to finish.
-- To create a new branch, type "git checkout -b (name)"
 - "git diff" shows you what has been changed
 - "git merge (branch)" merges the branches and pushes the changes
 - "git branch -d (branch)" deletes the branch
@@ -44,21 +41,6 @@ Third step:
 - "git log" gives a list of all previous commits. You can find the hash of a commit to paste into "git reset (hash)", which undos a specific commit.
 - "git reset --hard (hash)" will completely remove all the changes in this specific commit.
 
-## Forking
-- Fork means a complete copy of a repository.
-___________________________________________________________
-# Visual Studio Code
-- The lightweight version of Visual Studio 2019 Community.
-
-## Extensions
-- Install the C/C++ & Python extensions.
-
-## Python
-- Type "python3 (file)" in the terminal to run a python program or use the play button on the top right.
-
-## C/C++
-- Type "make (file)" in the terminal to build the program. Then type "./(file)" to run it.
-___________________________________________________________
 # Linux
 
 ## Basic Commands
@@ -70,6 +52,25 @@ ___________________________________________________________
 - "mv (file) (directory)" will move the file to that directory
 - "mv (file) (file)" will change the file's name
 - "sudo apt-get update" will update linux
+
+## Python3
+- Type "python3 (file)" in the terminal to run a python program
+
+## C++
+- Type "make (file.cpp)" or "g++ (file.cpp) -o (file)" to compile a .cpp file
+- Type "./(file)" to run the .cpp file
+
+### Debugging
+- Type "sudo apt-get update" and "sudo apt-get install gdb"
+- Type "g++ (file.cpp) -g" to create an a.out file
+- Type "gdb a.out" or "gdb a.out --tui" and enter to start debugging
+- "b (line #)" will set a breakpoint at this line
+- "run" will start the debugging sequence
+- "n" will go to the next line
+- "p (variable)" will tell you the value of a current variable
+- "s" will enter inside of a function call
+- "backtrace" will show you when you entered what function
+- "f" will tell you what line you're on
 
 ## PostgreSQL
 
@@ -102,25 +103,3 @@ ___________________________________________________________
 - Must configue the database before using these commands (check above)
 - Type "\i (file path)" to execute the commands from a file
 - Type "\o (file path)" then "(queries)" then "\o" to send all query results to a file
-- To work with a file in MyDownloads, you need to share the folder with Linux
-  - The file path for a file in MyDownloads is: "/mnt/chromeos/MyFiles/Downloads/..."
-- The file path for a file in LinuxFiles is: "/home/alexanderfluna/..."
-
-## Python3
-- Type "python3 (file)" in the terminal to run a python program
-
-## C++
-- Type "g++ (file.cpp) -o (file)" to compile a .cpp file
-- Type "./(file)" to run the .cpp file
-
-### Debugging
-- Type "sudo apt-get update" and "sudo apt-get install gdb"
-- Type "g++ (file.cpp) -g" to create an a.out file
-- Type "gdb a.out" or "gdb a.out --tui" and enter to start debugging
-- "b (line #)" will set a breakpoint at this line
-- "run" will start the debugging sequence
-- "n" will go to the next line
-- "p (variable)" will tell you the value of a current variable
-- "s" will enter inside of a function call
-- "backtrace" will show you when you entered what function
-- "f" will tell you what line you're on
