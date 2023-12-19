@@ -41,6 +41,8 @@ Third step:
 - "git log" gives a list of all previous commits. You can find the hash of a commit to paste into "git reset (hash)", which undos a specific commit.
 - "git reset --hard (hash)" will completely remove all the changes in this specific commit.
 
+______________________________________________________________________________________________________________________________________________________
+
 # Linux
 
 ## Basic Commands
