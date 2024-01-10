@@ -1,0 +1,3 @@
+A geometric series is of the form:
+
+...
